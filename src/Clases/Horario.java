@@ -1,6 +1,7 @@
 package Clases;
 
 import java.time.LocalTime;
+import java.util.Objects;
 
 public class Horario {
 
@@ -18,5 +19,12 @@ public class Horario {
         contador++;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Horario horario = (Horario) o;
+        return frecuencia == horario.frecuencia && Objects.equals(horaInicio, horario.horaInicio) && Objects.equals(horaFin, horario.horaFin) && Objects.equals(codigo, horario.codigo);
+    }
 
 }

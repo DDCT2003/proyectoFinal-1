@@ -43,7 +43,7 @@ public class LogIn extends JFrame {
                         dispose();
                     }else if(usuarioactual instanceof Usuario){
                         System.out.println("El usuario ingresado fue un Usuario");
-                        AdministradorCRUD interfazadministrador=new AdministradorCRUD("GESTION PERFIL ADMINISTRADOR",usuarioactual);
+                        AdministradorCRUD interfazadministrador=new AdministradorCRUD("GESTION PERFIL ADMINISTRADOR",usuarioactual,gestionarUsuario);
                         interfazadministrador.setVisible(true);
                         dispose();//Cierra la ventana actual
 
