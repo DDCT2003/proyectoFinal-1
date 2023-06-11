@@ -41,6 +41,7 @@ public class GestionUsuario {
     public boolean addUsuario(Usuario usuario){
         if(busquedaUsuario(usuario.getCedula())==null){
             listadoUsuarios.add(usuario);
+            System.out.println("Tamaño de la lista de usuarios: "+listadoUsuarios.size());
             return true;
         }else{
             return false;

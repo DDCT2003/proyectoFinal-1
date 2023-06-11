@@ -2,6 +2,7 @@ package Interfaz;
 
 
 import ClaseOperacionales.GestionUsuario;
+import Clases.AsistenteAdministrativo;
 import Clases.Usuario;
 import Validaciones.Validacion;
 
@@ -39,6 +40,8 @@ public class AdministradorCRUD extends JFrame {
     private JTextField txtAsisApellido;
     private JPanel txtAsisSucursal;
     private JLabel txtInicioNombre;
+    private JTextField txtAsiSucursal;
+    private JButton btnRegistrarAsistente;
     private Validacion validar;
     private GestionUsuario gestionUsuario;
 
@@ -70,6 +73,25 @@ public class AdministradorCRUD extends JFrame {
                     JOptionPane.showMessageDialog(null, "Ingrese una cédula Ecuatoriana valida");
                 }
 
+            }
+        });
+        btnRegistrarAsistente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(validar.validarCedula(txtAsisCedula.getText())){
+                    if(txtAsisNombre.getText().isBlank()==false&&txtAsisApellido.getText().isBlank()==false&&txtAsiSucursal.getText().isBlank()==false){
+                        if(gestionUsuario.addUsuario(new AsistenteAdministrativo(txtAsisCedula.getText(),txtAsisNombre.getText(),txtAsisApellido.getText(),txtAsiSucursal.getText()))){
+                            JOptionPane.showMessageDialog(null, "Usuario creado correctamente");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "No se pudo crear el usuario, ya existe en la lista");
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Debe llenar los campos Nombre y Apellido");
+                    }
+
+                }else{
+                    JOptionPane.showMessageDialog(null, "Ingrese una cédula Ecuatoriana valida");
+                }
             }
         });
     }

@@ -8,5 +8,6 @@ public class Main {
     public static void main(String[] args) {
         JFrame buscador= new LogIn("Iniciar Sesión");
         buscador.setVisible(true);
+        System.out.println("Holiii");
     }
 }
